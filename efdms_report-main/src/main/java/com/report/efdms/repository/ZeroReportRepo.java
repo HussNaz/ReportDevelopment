@@ -6,8 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import javax.xml.crypto.Data;
-import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -34,6 +32,12 @@ public interface ZeroReportRepo extends JpaRepository<ZeroReport,Long> {
             "where ind.total_sale_amount=0 \n" +
             "and ind.create_date BETWEEN :start_date and :end_date",nativeQuery = true)
     List<ZeroReport> getAllZeroReport(@Param("comm") long comm,
-                                      @Param("end_date") String end_date,
-                                      @Param("start_date") String start_date);
+                                      @Param("start_date") String start_date,
+                                      @Param("end_date") String end_date);
+
+
+    @Query(value = "  select office_name_en from r_office where office_id=:officeId",
+            nativeQuery = true)
+    String  commissionName (@Param("officeId") long office);
+
 }

@@ -17,7 +17,7 @@
 		<![CDATA[]]>
 	</queryString>
 	<field name="sl" class="java.lang.Long"/>
-	<field name="taxpayerName" class="java.lang.String"/>
+	<field name="taxpayer_name_en" class="java.lang.String"/>
 	<field name="bin" class="java.lang.String"/>
 	<field name="outlet_name_en" class="java.lang.String"/>
 	<field name="address_line1" class="java.lang.String"/>
@@ -165,7 +165,7 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{taxpayerName}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{taxpayer_name_en}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement mode="Transparent" x="222" y="0" width="111" height="35" forecolor="#000000" backcolor="#E8E6E6" uuid="2e15444b-3c6d-48a9-be90-cba5adce212d"/>

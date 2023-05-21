@@ -30,10 +30,11 @@ public class ZeroReportService {
              String filePath =
                      ResourceUtils.getFile("classpath:ZeroReport.jrxml")
                              .getAbsolutePath();
-             List<ZeroReport> list = null;
 
 
-             list = zeroReportRepo.getAllZeroReport(comm,start_date,end_date);
+             System.out.println("Start Date="+start_date+"\n End Date="+end_date+
+                     "\nComm="+comm);
+             List<ZeroReport>  list = zeroReportRepo.getAllZeroReport(comm,start_date,end_date);
 
 
              System.out.println(list);
@@ -41,8 +42,10 @@ public class ZeroReportService {
              JRBeanCollectionDataSource dataSource=
                      new JRBeanCollectionDataSource(list);
 
+             String officeName= zeroReportRepo.commissionName(comm);
+
              Map<String, Object> parameters = new HashMap<String, Object>();
-             parameters.put("Parameter1",comm);
+             parameters.put("Commissionarate",officeName);
 
              JasperReport report= JasperCompileManager.compileReport(filePath);
 

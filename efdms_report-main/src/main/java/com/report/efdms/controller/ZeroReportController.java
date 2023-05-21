@@ -29,6 +29,10 @@ public class ZeroReportController {
         else if (division!=0) {
             comm=division;
         } else comm= commissionerate;
+
+        System.out.println("Commissionerate="+commissionerate+"\nDivision="+division+
+                "\n circle="+circle+"\n Start Date="+start_date+"\n End Date="+end_date+
+                "\nComm="+comm);
         return zeroReportService.getAllzeroReportS(comm,start_date,end_date);
     }
 }
