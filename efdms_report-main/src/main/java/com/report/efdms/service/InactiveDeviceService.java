@@ -79,9 +79,32 @@ public class InactiveDeviceService {
                 System.out.println(list);
                 JRBeanCollectionDataSource dataSource=
                         new JRBeanCollectionDataSource(list);
+                String commisionP= inactiveDeviceRepo.officeName(commision);
+                String divisionP= inactiveDeviceRepo.officeName(division);
+                String circleP= inactiveDeviceRepo.officeName(circle);
+                String areaP=inactiveDeviceRepo.regionName(area);
+                String holidayP=null;
+                if(holiday == 1)
+                    holidayP= "Firday";
+                else if (holiday == 2) {
+                    holidayP="Saturday";
+                } else if (holiday == 3) {
+                    holidayP="Sunday";
+                } else if (holiday == 4) {
+                    holidayP="Monday";
+                } else if (holiday == 5) {
+                    holidayP="Tuesday";
+                } else if (holiday == 6) {
+                    holidayP="Wednesday";
+                } else holidayP= "Thrusday";
 
                 Map<String, Object> parameters = new HashMap<String, Object>();
-                parameters.put("Parameter1",commision);
+                parameters.put("commision",commisionP);
+                parameters.put("division",divisionP);
+                parameters.put("circle",circleP);
+                parameters.put("area",areaP);
+                parameters.put("holiday",holidayP);
+
 
                 JasperReport report= JasperCompileManager.compileReport(filePath);
 

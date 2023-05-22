@@ -2,8 +2,12 @@
 <!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c24827e1-3e1e-481f-b4eb-e0b81c81f619">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
-	<parameter name="Parameter1" class="java.lang.Long"/>
+	<parameter name="commision" class="java.lang.String"/>
 	<parameter name="Total" class="java.lang.Long"/>
+	<parameter name="division" class="java.lang.String"/>
+	<parameter name="circle" class="java.lang.String"/>
+	<parameter name="area" class="java.lang.String"/>
+	<parameter name="holiday" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -16,19 +20,50 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="89" splitType="Stretch">
+		<band height="123" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="20" width="555" height="69" forecolor="#0E7574" backcolor="#218270" uuid="729d7546-7e38-46e6-ba58-5b3e6c228b29"/>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="123" forecolor="#0E7574" backcolor="#218270" uuid="729d7546-7e38-46e6-ba58-5b3e6c228b29"/>
 				<staticText>
-					<reportElement x="10" y="10" width="187" height="40" forecolor="#FAF5F5" uuid="0b58fb8e-867f-461b-9578-827aa6149ae2"/>
+					<reportElement x="10" y="0" width="187" height="40" forecolor="#FAF5F5" uuid="0b58fb8e-867f-461b-9578-827aa6149ae2"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font size="16"/>
 					</textElement>
 					<text><![CDATA[Inactive Device Report]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="343" y="30" width="191" height="30" forecolor="#FCFCFC" uuid="e844622f-3508-4f47-b5db-07c04e1b9137"/>
-					<textFieldExpression><![CDATA["Commissionarate is "+$P{Parameter1}]]></textFieldExpression>
+					<reportElement x="330" y="10" width="214" height="30" forecolor="#FCFCFC" uuid="e844622f-3508-4f47-b5db-07c04e1b9137"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Commissionarate is "+$P{commision}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="330" y="40" width="214" height="30" forecolor="#FCFCFC" uuid="eb3dfa5e-a797-401d-aeb5-bf3b6ba71f2d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{division}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="330" y="70" width="214" height="30" forecolor="#FCFCFC" uuid="68235d7e-43a1-4c93-b81d-1489bad167a4"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{circle}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="10" y="46" width="187" height="30" forecolor="#FCF7F7" uuid="a0a466ff-d271-4c43-b6d6-e81cd0ff1671"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Area is "+$P{area}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="10" y="80" width="187" height="30" forecolor="#FCF7F7" uuid="2c0447c0-d827-49c6-a422-7121ae105982"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["It is "+$P{holiday}+" today."]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>

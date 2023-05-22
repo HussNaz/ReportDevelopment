@@ -1,6 +1,5 @@
 package com.report.efdms.service;
 
-import com.report.efdms.entity.InactiveDevice;
 import com.report.efdms.entity.ZeroReport;
 import com.report.efdms.repository.ZeroReportRepo;
 import net.sf.jasperreports.engine.*;
@@ -13,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +22,7 @@ public class ZeroReportService {
     ZeroReportRepo zeroReportRepo;
 
 
-     public ResponseEntity<byte[]> getAllzeroReportS(long comm, String start_date, String end_date){
+     public ResponseEntity<byte[]> getAllzeroReportS(long commissionerate, long division, long circle, String start_date, String end_date){
          try {
 
              String filePath =
@@ -33,8 +31,8 @@ public class ZeroReportService {
 
 
              System.out.println("Start Date="+start_date+"\n End Date="+end_date+
-                     "\nComm="+comm);
-             List<ZeroReport>  list = zeroReportRepo.getAllZeroReport(comm,start_date,end_date);
+                     "\nComm="+ commissionerate);
+             List<ZeroReport>  list = zeroReportRepo.getAllZeroReport(commissionerate,start_date,end_date);
 
 
              System.out.println(list);
@@ -42,10 +40,16 @@ public class ZeroReportService {
              JRBeanCollectionDataSource dataSource=
                      new JRBeanCollectionDataSource(list);
 
-             String officeName= zeroReportRepo.commissionName(comm);
+             String CommissionarateP= zeroReportRepo.officeName(commissionerate);
+             String divisionP= zeroReportRepo.officeName(division);
+             String circleP= zeroReportRepo.officeName(circle);
 
              Map<String, Object> parameters = new HashMap<String, Object>();
-             parameters.put("Commissionarate",officeName);
+             parameters.put("Commissionarate",CommissionarateP);
+             parameters.put("division",divisionP);
+             parameters.put("circle",circleP);
+             parameters.put("start_date",start_date);
+             parameters.put("end_date",end_date);
 
              JasperReport report= JasperCompileManager.compileReport(filePath);
 

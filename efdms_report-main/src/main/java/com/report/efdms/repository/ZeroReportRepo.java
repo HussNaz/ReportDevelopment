@@ -38,6 +38,6 @@ public interface ZeroReportRepo extends JpaRepository<ZeroReport,Long> {
 
     @Query(value = "  select office_name_en from r_office where office_id=:officeId",
             nativeQuery = true)
-    String  commissionName (@Param("officeId") long office);
+    String officeName(@Param("officeId") long office);
 
 }

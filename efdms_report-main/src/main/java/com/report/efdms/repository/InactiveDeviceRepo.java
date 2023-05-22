@@ -43,4 +43,12 @@ public interface InactiveDeviceRepo extends JpaRepository<InactiveDevice,Long> {
                                               @Param("c") long c,
                                               @Param("area") long area,
                                               @Param("week") long holiday);
+
+    @Query(value = "  select office_name_en from r_office where office_id=:officeId",
+            nativeQuery = true)
+    String officeName(@Param("officeId") long office);
+
+    @Query(value = "  select region_name_en from r_region where region_id=:area",
+            nativeQuery = true)
+    String regionName(@Param("area") long area);
 }
